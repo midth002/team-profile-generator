@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "inquirer": "^8.2.2"
-  }
+  },
+  "name": "team-profile-generator",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midth002/team-profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/midth002/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/midth002/team-profile-generator#readme"
 }
