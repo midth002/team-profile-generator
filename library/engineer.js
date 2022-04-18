@@ -1,4 +1,4 @@
-const Employee = require('./employee.js')
+const Employee = require('./employee')
 
 class Engineer extends Employee {
     
@@ -17,4 +17,4 @@ class Engineer extends Employee {
     }
 }
 
-exports.Engineer = Engineer;
+module.exports = Engineer;

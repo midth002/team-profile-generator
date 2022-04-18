@@ -1,5 +1,7 @@
 const inquirer = require('inquirer')
-
+const Engineer = require('./engineer.js')
+const Manager = require('./manager')
+const Intern = require('./intern')
 
     const mgrQuestions = ['What is the team managers name?', 'What is the managers ID?', 'What is the managers email address?', 'What is the office number?']
     const menuQuestion = 'Would you like to add engineer, intern, or finish building your team?'
@@ -8,6 +10,8 @@ const inquirer = require('inquirer')
     const menuChoices = ['Add Engineer', 'Add Intern', 'Finish building']
 
 let teamInfoArray = []
+
+
 
 class Team {
 
@@ -36,8 +40,9 @@ generatManagerQuestions() {
         },
     ])
     .then((response) => {
-        console.log(response);
-        teamInfoArray.push(response);
+        const manager = new Manager(response.managerName, response.managerID, 
+            response.managerEmail, response.officeNumber)
+        console.log(manager)
         generateMenu();
 }
     );
@@ -48,7 +53,7 @@ generatEngineerQuestions () {
     .prompt([
         {
             type: 'input',
-            name: 'egineerName',
+            name: 'engineerName',
             message: engineerQuestions[0]
         },
         {
@@ -68,10 +73,10 @@ generatEngineerQuestions () {
         },
     ])
     .then((response) => {
-        console.log("You have created your Engineer!");
-        console.log(response);
-        teamInfoArray.push(response);
-        generateMenu() 
+        const engineer = new Engineer(response.engineerName, response.engineerID, 
+            response.engineerEmail, response.engineerGithub)
+        console.log(engineer)
+        generateMenu();
         
 }
     );
@@ -102,16 +107,23 @@ generateInternQuestions () {
         },
     ])
     .then((response) => {
-        console.log("You have created your intern!")
-        console.log(response)
-        teamInfoArray.push(response);
+        const intern = new Intern(response.internName, response.internID, 
+            response.internEmail, response.internGithub)
+        console.log(intern)
         generateMenu();
         
 }
     );
 }
 
- generateMenu() {
+
+
+}
+
+const team = new Team();
+
+
+function generateMenu() {
     inquirer 
     .prompt([
         {
@@ -122,20 +134,17 @@ generateInternQuestions () {
         }
     ])
     .then((response) => {
-        console.log(response.menu)  
-
         if (response.menu === 'Add Engineer') {
-            generatEngineerQuestions();
+            team.generatEngineerQuestions();
         } else if (response.menu === 'Add Intern') {
-            generateInternQuestions();
+            team.generateInternQuestions();
         } else {
             console.log("You have created your team!")
-            console.log(teamInfoArray)
+           
         }
 }
     );
 }
 
-}
 
 module.exports = Team;

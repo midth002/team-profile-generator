@@ -17,5 +17,5 @@ class Manager extends Employee {
     }
 }
 
-exports.Manager = Manager;
+module.exports = Manager;
 

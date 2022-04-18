@@ -19,4 +19,4 @@ class Intern extends Employee {
 
 }
 
-exports.Intern = Intern;
+module.exports = Intern;
