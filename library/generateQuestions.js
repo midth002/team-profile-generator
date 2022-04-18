@@ -6,6 +6,8 @@ const inquirer = require('inquirer')
     const internQuestions = ['What is the interns name?', 'The school the intern intended to?', 'The interns ID', 'The interns email address']
     const menuChoices = ['Add Engineer', 'Add Intern', 'Finish building']
 
+let teamInfoArray = []
+
 function generatManagerQuestions () {
     inquirer 
     .prompt([
@@ -31,7 +33,8 @@ function generatManagerQuestions () {
         },
     ])
     .then((response) => {
-        console.log(response)
+        console.log(response);
+        teamInfoArray.push(response);
         generateMenu();
 }
     );
@@ -64,6 +67,7 @@ function generatEngineerQuestions () {
     .then((response) => {
         console.log("You have created your Engineer!");
         console.log(response);
+        teamInfoArray.push(response);
         generateMenu() 
         
 }
@@ -96,6 +100,7 @@ function generateInternQuestions () {
     .then((response) => {
         console.log("You have created your intern!")
         console.log(response)
+        teamInfoArray.push(response);
         generateMenu();
         
 }
@@ -121,6 +126,7 @@ function generateMenu() {
             generateInternQuestions();
         } else {
             console.log("You have created your team!")
+            console.log(teamInfoArray)
         }
 }
     );
