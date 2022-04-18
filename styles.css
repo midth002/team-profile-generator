@@ -1,0 +1,22 @@
+.media {
+    background-color: hsl(204, 86%, 53%);
+    padding: 10px;
+    
+}
+
+.media p {
+    color: white;
+}
+
+
+.container {
+    margin-top: 60px;
+}
+
+.list {
+    padding: 10px 2px 50px 10px
+}
+
+.card {
+    margin: 15px;
+}

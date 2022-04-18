@@ -43,6 +43,7 @@ generatManagerQuestions() {
         const manager = new Manager(response.managerName, response.managerID, 
             response.managerEmail, response.officeNumber)
         console.log(manager)
+        teamInfoArray.push(manager)
         generateMenu();
 }
     );
@@ -68,7 +69,7 @@ generatEngineerQuestions () {
         },
         {
             type: 'input',
-            name: 'egineerGithub',
+            name: 'engineerGithub',
             message: engineerQuestions[3]
         },
     ])
@@ -76,6 +77,7 @@ generatEngineerQuestions () {
         const engineer = new Engineer(response.engineerName, response.engineerID, 
             response.engineerEmail, response.engineerGithub)
         console.log(engineer)
+        teamInfoArray.push(engineer)
         generateMenu();
         
 }
@@ -108,8 +110,9 @@ generateInternQuestions () {
     ])
     .then((response) => {
         const intern = new Intern(response.internName, response.internID, 
-            response.internEmail, response.internGithub)
+            response.internEmail, response.internSchool)
         console.log(intern)
+        teamInfoArray.push(intern)
         generateMenu();
         
 }
@@ -140,7 +143,7 @@ function generateMenu() {
             team.generateInternQuestions();
         } else {
             console.log("You have created your team!")
-           
+            console.log(teamInfoArray)
         }
 }
     );
