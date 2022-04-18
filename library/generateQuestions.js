@@ -26,7 +26,7 @@ function generatManagerQuestions () {
         },
         {
             type: 'input',
-            name: 'managerName',
+            name: 'officeNumber',
             message: mgrQuestions[3]
         },
     ])
@@ -57,13 +57,14 @@ function generatEngineerQuestions () {
         },
         {
             type: 'input',
-            name: 'egineerName',
+            name: 'egineerGithub',
             message: engineerQuestions[3]
         },
     ])
     .then((response) => {
         console.log("You have created your Engineer!");
-        console.log(response)
+        console.log(response);
+        generateMenu() 
         
 }
     );
@@ -78,28 +79,28 @@ function generateInternQuestions () {
         },
         {
             type: 'input',
-            name: 'internID',
+            name: 'internSchool',
             message: internQuestions[1]
         },
         {
             type: 'input',
-            name: 'internEmail',
+            name: 'internId',
             message: internQuestions[2]
         },
         {
             type: 'input',
-            name: 'internName',
+            name: 'internEmail',
             message: internQuestions[3]
         },
     ])
     .then((response) => {
         console.log("You have created your intern!")
         console.log(response)
+        generateMenu();
         
 }
     );
 }
-
 
 function generateMenu() {
     inquirer 
@@ -119,7 +120,7 @@ function generateMenu() {
         } else if (response.menu === 'Add Intern') {
             generateInternQuestions();
         } else {
-            console.log("You have create your team!")
+            console.log("You have created your team!")
         }
 }
     );
@@ -127,7 +128,6 @@ function generateMenu() {
 
 function generateQuestions() {
     generatManagerQuestions(); 
-   
 }
 
 module.exports = generateQuestions;
