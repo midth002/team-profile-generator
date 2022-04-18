@@ -1,6 +1,10 @@
-class Engineer {
+const Employee = require('./employee.js')
+
+class Engineer extends Employee {
     
-    constructor(gitUserName) {
+    constructor(name, id, email, gitUserName) {
+        
+        super(name, id, email)
         this.gitUserName = gitUserName;
     }
 
@@ -9,6 +13,8 @@ class Engineer {
     }
 
     getRole() {
-        return 'Engineer'
+        return 'Engineer';
     }
 }
+
+exports.Engineer = Engineer;

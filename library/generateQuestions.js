@@ -1,5 +1,6 @@
 const inquirer = require('inquirer')
 
+
     const mgrQuestions = ['What is the team managers name?', 'What is the managers ID?', 'What is the managers email address?', 'What is the office number?']
     const menuQuestion = 'Would you like to add engineer, intern, or finish building your team?'
     const engineerQuestions = ['What is the engineers name?', 'The engineers ID?', 'Engineers email address?', 'Engineers github username?']
@@ -8,7 +9,9 @@ const inquirer = require('inquirer')
 
 let teamInfoArray = []
 
-function generatManagerQuestions () {
+class Team {
+
+generatManagerQuestions() {
     inquirer 
     .prompt([
         {
@@ -40,7 +43,7 @@ function generatManagerQuestions () {
     );
 }
 
-function generatEngineerQuestions () {
+generatEngineerQuestions () {
     inquirer 
     .prompt([
         {
@@ -73,7 +76,8 @@ function generatEngineerQuestions () {
 }
     );
 }
-function generateInternQuestions () {
+
+generateInternQuestions () {
     inquirer 
     .prompt([
         {
@@ -107,7 +111,7 @@ function generateInternQuestions () {
     );
 }
 
-function generateMenu() {
+ generateMenu() {
     inquirer 
     .prompt([
         {
@@ -132,8 +136,6 @@ function generateMenu() {
     );
 }
 
-function generateQuestions() {
-    generatManagerQuestions(); 
 }
 
-module.exports = generateQuestions;
+module.exports = Team;
