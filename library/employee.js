@@ -8,7 +8,7 @@ class Employee {
     }
 
     getName() {
-       const newName = this.name.trim();
+       const newName = this.name
         if (newName === '') {
             throw 'Please enter a name'
         }
@@ -16,7 +16,7 @@ class Employee {
     }
 
     getId() {
-        const newId = this.id.trim();
+        const newId = this.id
         if (newId === '') {
             throw 'Please enter an ID'
         } 
@@ -24,7 +24,7 @@ class Employee {
     }
 
     getEmail() {
-        const newEmail = this.email.trim();
+        const newEmail = this.email
         if (newEmail === '') {
             throw 'Provide an email'
         }

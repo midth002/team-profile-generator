@@ -194,7 +194,7 @@ function initialHTML() {
          `;
  
  } else if (role === "Engineer") {
-    const github = getGithub();
+    const github = emp.getGithub();
      empData = 
      `<div class="card p-0 column">
      <div class="card-content p-0">
@@ -219,7 +219,7 @@ function initialHTML() {
      `;
  
  } else if (role === "Intern") {
-    const school = getSchool();
+    const school = emp.getSchool();
       empData =
            
          `<div class="card p-0 column">
