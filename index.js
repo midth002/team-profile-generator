@@ -6,6 +6,7 @@ const team = new Team();
 
 function init() {
     team.generatManagerQuestions();
+
 };
 
 init();
