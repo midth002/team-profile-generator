@@ -44,7 +44,6 @@ generatManagerQuestions() {
     .then((response) => {
         const manager = new Manager(response.managerName, response.managerID, 
             response.managerEmail, response.officeNumber)
-        console.log(manager)
         teamInfoArray.push(manager)
         generateMenu();
 }
@@ -78,7 +77,6 @@ generatEngineerQuestions () {
     .then((response) => {
         const engineer = new Engineer(response.engineerName, response.engineerID, 
             response.engineerEmail, response.engineerGithub)
-        console.log(engineer)
         teamInfoArray.push(engineer)
         generateMenu();
         
@@ -113,7 +111,6 @@ generateInternQuestions () {
     .then((response) => {
         const intern = new Intern(response.internName, response.internID, 
             response.internEmail, response.internSchool)
-        console.log(intern)
         teamInfoArray.push(intern)
         generateMenu();
         
@@ -166,8 +163,6 @@ function initialHTML() {
  const role = emp.getRole();
  
 
- 
-  
  if(role == "Manager") {
     const officeNumber = emp.getOfficeNumber();
      empData =
@@ -260,7 +255,9 @@ function initialHTML() {
 }
  
  function endHTML() {
-    const endHtml =  ` </div>
+    const endHtml =  ` 
+    
+    </div>
      </section>
    
      </body>
@@ -274,12 +271,9 @@ function initialHTML() {
 
  function generateTeamHTML(teamInfoArray) {
      initialHTML();
-     console.log("Array ")
-     
      for (i=0;i<teamInfoArray.length;i++) {
         addEmployee(teamInfoArray[i])
      }
-     console.log(teamInfoArray)
      endHTML();
  }
 
