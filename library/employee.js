@@ -8,18 +8,15 @@ class Employee {
     }
 
     getName() {
-       const newName = this.name
-        return newName;
+        return this.name;
     }
 
     getId() {
-        const newId = this.id
-        return newId;
+        return this.id;
     }
 
     getEmail() {
-        const newEmail = this.email
-        return newEmail;
+        return this.email;
     }
 
     getRole() {
