@@ -151,7 +151,7 @@ function initialHTML() {
      <section class="container mt-50 is-flex flex-wrap is-two-thirds is-justify-content-center">
          <div class="columns pt-10  is-multiline is-justify-content-center">`;
  
-     fs.writeFile('./index.html', html, function(err) {
+     fs.writeFile('./dist/index.html', html, function(err) {
          if (err) {console.log(err)}
      })
  }
@@ -249,7 +249,7 @@ function initialHTML() {
  
  
  console.log("Added the employee")
- fs.appendFile('./index.html', empData, function (err) {
+ fs.appendFile('./dist/index.html', empData, function (err) {
     if(err) {
         console.log(err)
        
@@ -265,7 +265,7 @@ function initialHTML() {
    
      </body>
      </html>`; 
-     fs.appendFile('./index.html', endHtml, function(err) {
+     fs.appendFile('./dist/index.html', endHtml, function(err) {
          if (err) {
              console.log(err)
          }
