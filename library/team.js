@@ -8,7 +8,7 @@ const fs = require("fs");
     const mgrQuestions = ['What is the team managers name?', 'What is the managers ID?', 'What is the managers email address?', 'What is the office number?']
     const menuQuestion = 'Would you like to add engineer, intern, or finish building your team?'
     const engineerQuestions = ['What is the engineers name?', 'The engineers ID?', 'Engineers email address?', 'Engineers github username?']
-    const internQuestions = ['What is the interns name?', 'The school the intern intended to?', 'The interns ID', 'The interns email address']
+    const internQuestions = ['What is the interns name?', 'The school the intern intended to?', 'The interns ID?', 'The interns email address?']
     const menuChoices = ['Add Engineer', 'Add Intern', 'Finish building']
 
 
@@ -148,7 +148,7 @@ function initialHTML() {
        </div>
      </section>
      <!-- First Card -->
-     <section class="container mt-100 is-flex flex-wrap is-two-thirds is-justify-content-center">
+     <section class="container mt-50 is-flex flex-wrap is-two-thirds is-justify-content-center">
          <div class="columns pt-10  is-multiline is-justify-content-center">`;
  
      fs.writeFile('./index.html', html, function(err) {
@@ -185,7 +185,7 @@ function initialHTML() {
            <div class="content list p-auto">
              <ul>
                  <li class="box ml-3 mb-0 p-10">ID: ${id}</li>
-                 <li class="box ml-3 mb-0 p-10">Email: ${email}</li>
+                 <li class="box ml-3 mb-0 p-10">Email: <a href="mailto:${email}">${email}</a></li>
                  <li class="box ml-3 mb-0 p-10">Office Number: ${officeNumber}</li>
              </ul>
            </div>
@@ -210,8 +210,8 @@ function initialHTML() {
        <div class="content list p-auto">
          <ul>
              <li class="box ml-3 mb-0 p-10">ID: ${id}</li>
-             <li class="box ml-3 mb-0 p-10">Email: ${email}</li>
-             <li class="box ml-3 mb-0 p-10">GitHub: ${github}</li>
+             <li class="box ml-3 mb-0 p-10">Email: <a href="mailto:${email}">${email}</a></li>
+             <li class="box ml-3 mb-0 p-10">GitHub: <a href="https://github.com/${github}">${github}</a></li>
          </ul>
        </div>
      </div>
@@ -236,7 +236,7 @@ function initialHTML() {
            <div class="content list p-auto">
              <ul>
                  <li class="box ml-3 mb-0 p-10">ID: ${id}</li>
-                 <li class="box ml-3 mb-0 p-10">Email: ${email}</li>
+                 <li class="box ml-3 mb-0 p-10">Email: <a href="mailto:${email}">${email}</a></li>
                  <li class="box ml-3 mb-0 p-10">School: ${school}</li>
              </ul>
            </div>
