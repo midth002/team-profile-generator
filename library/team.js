@@ -126,6 +126,7 @@ generateInternQuestions () {
 const team = new Team();
 
 function initialHTML() {
+    const section = loopEmployees();
     const html = `<!DOCTYPE html>
      <html lang="en">
      <head>
@@ -146,7 +147,16 @@ function initialHTML() {
      </section>
      <!-- First Card -->
      <section class="container mt-50 is-flex flex-wrap is-two-thirds is-justify-content-center">
-         <div class="columns pt-10  is-multiline is-justify-content-center">`;
+         <div class="columns pt-10 is-multiline is-justify-content-center">
+        
+         ${section}
+         
+         </div>
+         </section>
+         </body>
+         </html>
+
+         `;
  
      fs.writeFile('./dist/index.html', html, function(err) {
          if (err) {console.log(err)}
@@ -166,7 +176,8 @@ function initialHTML() {
  if(role == "Manager") {
     const officeNumber = emp.getOfficeNumber();
      empData =
-         `<div class="card p-0 column">
+         `
+         <div class="card p-0 column">
          <div class="card-content p-0">
            <div class="media m-10 is-link">
              <div class="media-left">
@@ -191,7 +202,7 @@ function initialHTML() {
  } else if (role === "Engineer") {
     const github = emp.getGithub();
      empData = 
-     `<div class="card p-0 column">
+     ` <div class="card p-0 column">
      <div class="card-content p-0">
        <div class="media m-10 is-link">
          <div class="media-left">
@@ -217,7 +228,7 @@ function initialHTML() {
     const school = emp.getSchool();
       empData =
            
-         `<div class="card p-0 column">
+         ` <div class="card p-0 column">
          <div class="card-content p-0">
            <div class="media m-10 is-link">
              <div class="media-left">
@@ -242,39 +253,42 @@ function initialHTML() {
      
  }
  
- 
- console.log("Added the employee")
- fs.appendFile('./dist/index.html', empData, function (err) {
-    if(err) {
-        console.log(err)
+ return empData;
+//  console.log("Added the employee")
+//  fs.appendFile('./dist/index.html', empData, function (err) {
+//     if(err) {
+//         console.log(err)
        
-    }
- })
- 
+//     }
+//  })
 
 }
- 
- function endHTML() {
-    const endHtml =  ` 
-    
-    </div>
-     </section>
-   
-     </body>
-     </html>`; 
-     fs.appendFile('./dist/index.html', endHtml, function(err) {
-         if (err) {
-             console.log(err)
-         }
-     })
- }
 
- function generateTeamHTML(teamInfoArray) {
+    function loopEmployees() {
+        let data = ``;
+        for (i=0;i<teamInfoArray.length;i++) {
+            data += addEmployee(teamInfoArray[i])
+         }
+         return data;
+    }
+ 
+//  function endHTML() {
+//     const endHtml =  
+//     ` </div>
+//      </section>
+//      </body>
+//      </html>`; 
+//      fs.appendFile('./dist/index.html', endHtml, function(err) {
+//          if (err) {
+//              console.log(err)
+//          }
+//      })
+//  }
+
+ function generateTeamHTML() {
      initialHTML();
-     for (i=0;i<teamInfoArray.length;i++) {
-        addEmployee(teamInfoArray[i])
-     }
-     endHTML();
+    //  loopEmployees()
+    //  endHTML();
  }
 
 
@@ -294,15 +308,12 @@ function generateMenu() {
         } else if (response.menu === 'Add Intern') {
             team.generateInternQuestions();
         } else {
-            generateTeamHTML(teamInfoArray)
+            generateTeamHTML()
         }
 
 }
     ).catch((err) => console.log(err))
 }
-
-
-
 
 
 module.exports = Team;
